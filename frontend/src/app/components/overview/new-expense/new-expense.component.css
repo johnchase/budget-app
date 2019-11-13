@@ -1,0 +1,23 @@
+.form-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.expense-header {
+  padding: 10px 0 0 15px;
+}
+
+.form-style {
+  font-size: 14px;
+}
+
+.btn {
+  margin: 27px 0 0 0;
+  height: 37px;
+  background: #7EA4DD;
+}
+
+.field-error {
+  border: 1px solid red;
+}

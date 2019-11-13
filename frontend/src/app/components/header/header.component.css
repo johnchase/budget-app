@@ -1,0 +1,25 @@
+header {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  height: 100%;
+  width: 100%;
+  background: rgba(229, 229, 229, 0.8);
+}
+
+
+
+.title {
+  font-style: normal;
+  font-weight: light;
+  font-size: 20px;
+  color: #000000;
+}
+
+.active {
+  text-decoration: underline #3ED026;
+}
+
+header .sidebar-link {
+  font-size: 14px;
+}
