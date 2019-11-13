@@ -24,14 +24,11 @@
         <div class="form-group form-style">
           <label for="exampleFormControlSelect1">Category</label>
           <select class="form-control" id="exampleFormControlSelect1" name="category" [(ngModel)]="newExpense.category">
-            <option>Groceries</option>
-            <option>Gas</option>
-            <option>Restaurants and Bars</option>
-            <option>Health</option>
-            <option>Travel</option>
-            <option>Items</option>
+            <option *ngFor="let type of categoryTypes | async">{{ type }}</option>
           </select>
         </div>
+        <div [hidden]="!postError" class="alert alert-danger">
+          {{ postErrorMessage }}</div>
 
         <div>
           <button class="btn btn-primary">Submit</button>
