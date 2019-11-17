@@ -1,46 +1,51 @@
-<div class="expense">
+<div>
+  <h5 class="expense-header">NEW PURCHASE</h5>
+  <hr>
   <div>
-    <h5 class="expense-header">EXPENSES</h5>
-    <hr>
+    <form novalidate class="form-container" (ngSubmit)="save()" [formGroup]="expenseForm">
+
+      <div class="form-style form-group">
+        <label class="form-label" for="amount">Amount</label>
+        <input id="amount" class="form-control" placeholder="$0.00" formControlName="amount" required />
+      </div>
+
+      <div class="form-group">
+        <label for="starDate">Start Date</label>
+        <input type="text" class="form-control" formControlName="date" id="startDate" bsDatepicker autocomplete="off"
+          [bsValue]="bsValue">
+      </div>
+
+      <div class="form-group form-style">
+        <label for="exampleFormControlSelect1">Category</label>
+        <select class="form-control" id="exampleFormControlSelect1" formControlName="category">
+          <option *ngFor="let type of categoryTypes">{{ type }}</option>
+        </select>
+      </div>
+
+
+      <div><button class="btn btn-primary" type="submit" [disabled]="!expenseForm.valid">Submit</button></div>
+
+    </form>
   </div>
-  <div>
-    <h6 class="expense-header">Week</h6>
-    <hr>
-    <div class="line-item">
-      <p>Total</p>
-      <p>$543.14</p>
-    </div>
-    <div class="line-item">
-      <p>Spent Per Day</p>
-      <p>$5.14</p>
-    </div>
-    <div class="line-item">
-      <p>Left Per Day</p>
-      <p>$5.14</p>
-    </div>
-    <div class="line-item">
-      <p>Saved</p>
-      <p>$5.14</p>
-    </div>
-  </div>
-  <div>
-    <h6 class="expense-header">Month</h6>
-    <hr>
-    <div class="line-item">
-      <p>Total</p>
-      <p>$543.14</p>
-    </div>
-    <div class="line-item">
-      <p>Spent Per Day</p>
-      <p>$5.14</p>
-    </div>
-    <div class="line-item">
-      <p>Left Per Day</p>
-      <p>$5.14</p>
-    </div>
-    <div class="line-item">
-      <p>Saved</p>
-      <p>$5.14</p>
-    </div>
-  </div>
+  <!--  -->
+
+  <!--  -->
+
+  <!--  -->
+  <!--  -->
+  <!--  -->
+  <!-- <div [hidden]="!form.submitted || nameField.valid" class="alert alert-danger"> -->
+  <!-- Enter a name -->
+  <!-- </div> -->
+  <!-- </div> -->
+  <!--  -->
+  <!-- <button type="button" class="btn btn-primary" name="singleModel" [(ngModel)]="singleModel" btnCheckbox -->
+  <!-- btnCheckboxTrue="On" btnCheckboxFalse="Off"> -->
+  <!-- {{ singleModel }} -->
+  <!-- </button> -->
+  <!--  -->
+  <!--  -->
+  <!-- <div [hidden]="!postError" class="alert alert-danger"> -->
+  <!-- {{ postErrorMessage }}</div> -->
+  <!--  -->
 </div>

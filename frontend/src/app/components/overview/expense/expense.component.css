@@ -1,28 +1,20 @@
-.expense {
-  height: 100%;
-  width: 100%;
+.form-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
-}
-
-.line-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 15px 0 15px
+  align-items: center;
 }
 
 .expense-header {
   padding: 10px 0 0 15px;
 }
 
-p {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  padding: 0;
-}
+/* .btn { */
+/* margin: 27px 0 0 0; */
+/* height: 37px; */
+/* background: #7EA4DD; */
+/* } */
 
-hr {
-  margin: 15px;
+.field-error {
+  border: 1px solid red;
 }
