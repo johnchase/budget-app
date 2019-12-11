@@ -1,28 +1,19 @@
-.expense {
-  height: 100%;
-  width: 100%;
+.form-container {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: space-evenly;
-}
-
-.line-item {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 15px 0 15px
+  align-items: flex-start;
 }
 
 .expense-header {
   padding: 10px 0 0 15px;
 }
 
-p {
-  font-style: normal;
-  font-weight: normal;
-  font-size: 16px;
-  padding: 0;
+.form-field {
+  font-size: 12px;
+  height: 30px !important;
 }
 
-hr {
-  margin: 15px;
+.btn-height {
+  margin: 32px
 }

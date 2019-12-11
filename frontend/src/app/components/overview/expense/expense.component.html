@@ -1,46 +1,36 @@
-<div class="expense">
+<div>
+  <h5 class="expense-header">NEW PURCHASE</h5>
+  <hr>
   <div>
-    <h5 class="expense-header">EXPENSES</h5>
-    <hr>
-  </div>
-  <div>
-    <h6 class="expense-header">Week</h6>
-    <hr>
-    <div class="line-item">
-      <p>Total</p>
-      <p>$543.14</p>
-    </div>
-    <div class="line-item">
-      <p>Spent Per Day</p>
-      <p>$5.14</p>
-    </div>
-    <div class="line-item">
-      <p>Left Per Day</p>
-      <p>$5.14</p>
-    </div>
-    <div class="line-item">
-      <p>Saved</p>
-      <p>$5.14</p>
-    </div>
-  </div>
-  <div>
-    <h6 class="expense-header">Month</h6>
-    <hr>
-    <div class="line-item">
-      <p>Total</p>
-      <p>$543.14</p>
-    </div>
-    <div class="line-item">
-      <p>Spent Per Day</p>
-      <p>$5.14</p>
-    </div>
-    <div class="line-item">
-      <p>Left Per Day</p>
-      <p>$5.14</p>
-    </div>
-    <div class="line-item">
-      <p>Saved</p>
-      <p>$5.14</p>
-    </div>
+    <form novalidate class="form-container" (ngSubmit)="save()" [formGroup]="expenseForm">
+
+      <div class="form-style form-group">
+        <label class="form-label" for="amount">Amount</label>
+        <input id="amount" type="number" class="form-control form-field" placeholder="$0.00" formControlName="amount"
+          required />
+
+
+      </div>
+
+      <div class="form-group">
+        <label for="starDate" class="form-label">Start Date</label>
+        <input type="text" class="form-control form-field" formControlName="date" id="startDate" bsDatepicker
+          autocomplete="off">
+
+      </div>
+
+      <div class="form-group form-style">
+        <label for="exampleFormControlSelect1" class="form-label">Category</label>
+        <select class="form-control form-field" id="exampleFormControlSelect1" formControlName="category"
+          placeholder="Restaurants">
+          <option *ngFor="let type of categoryTypes">{{ type }}</option>
+        </select>
+      </div>
+
+
+      <div><button class="btn btn-primary form-field btn-height" type="submit"
+          [disabled]="!expenseForm.valid">Submit</button></div>
+
+    </form>
   </div>
 </div>

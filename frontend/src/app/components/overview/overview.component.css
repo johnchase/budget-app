@@ -1,9 +1,9 @@
-.expense {
+.budget {
   grid-column: 1 / 4;
   grid-row: 1 / 12;
 }
 
-.new-expense {
+.expense {
   grid-column: 4 / 12;
   grid-row: 1 / 4;
 }
@@ -21,13 +21,13 @@
 }
 
 .container {
-  font-size: 40px;
   width: 100%;
   height: 100%;
-  padding: 10px 10px 10px 10px;
+  padding: 30px 80px 10px 80px;
   display: grid;
   grid-gap: 10px;
   grid-template-columns: repeat(11, 1fr);
   grid-template-rows: repeat(11, 1fr);
 
 }
+

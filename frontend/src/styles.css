@@ -4,3 +4,22 @@
 body {
   font-family: 'Ubuntu', sans-serif;
 }
+
+p {
+  font-style: normal;
+  font-weight: normal;
+  font-size: 12px;
+  padding: 0;
+}
+
+.form-label {
+  font-size: 14px;
+}
+
+hr {
+  margin: 15px;
+}
+
+h5 {
+  font-size: 16px;
+}
