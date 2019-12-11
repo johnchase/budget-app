@@ -1,0 +1,21 @@
+.expense {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.line-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 15px 0 15px
+}
+
+.expense-header {
+  padding: 10px 0 0 15px;
+}
+
+
+
+

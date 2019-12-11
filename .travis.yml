@@ -1,0 +1,25 @@
+jobs:
+  include:
+  - stage: deploy
+    language: node_js
+    node_js:
+    - 10
+    cache:
+      directories:
+      - "./node_modules"
+    script:
+    - cd frontend
+    - npm install
+    - ng build --prod --aot
+    before_deploy:
+    - cd dist/frontend
+deploy:
+  provider: s3
+  access_key_id: AKIA6QW6FCJ6ZUF2XSFJ
+  secret_access_key:
+    secure: h+nBZIFEPMbGVohz9R1h5JqGlD83x1W9W0eTC0X9ovNzvenrbTe9Zp73KwUynQk9b6s5kWyUIi2T69aXAdweGoeySEJkc13Xkqe4SqIUL5MqEThXfnDWyOfYs6PFIP7kFp1zkPiJRAEp58Sx3We1gqWf7A2sS2AaJUSH7pPRlrR2BijhdFIEY8X8LmjAC5JqMfQZv/s/hlm1agacMLQssTrk5rsfHwBWhKjv8/1gpHWWvn/TQNSNFicqqYUqybcyQCAfnSIBEDmP31gthuhIKmfwHtZKroiNcJ3bSpDKIIoTrbcROLry8JgcbcK1jzJEkhRVQLbHOSRJbNJA0PXtfqgDzhd7Mw04yJGG58NNzOElpTGsc+P8XCGywTkTPPzSceo87S35p1661/iG22xdZi//ps3oKGBe4tQf8pQ6HsbMW4VyDTcg/+L9wtQwTj08M6KA6YkKpka7cL7+CwzEdIa2qDj+NPudbVHpADrRdqV76CBvEF/9oX1p6yqoSk78px9kp0guz7/lkABYacrNejn0jHvyuuZh4AOzdRr4+MhXsr+r/M7WhVAnWKHM6XksBcV2XRA72nnD91+klNrMnCVtNMomKOA9cya/o5dBabrR1wxm+guKvt/7+TpuPBDGVh36DALCNMPg2x4IefvCwvbNIn3aTIJNR06Prbs2w3U=
+  bucket: sailor-hathaway-budget-frontend
+  acl: public_read
+  skip_cleanup: true
+  on:
+    repo: johnchase/budget-app
