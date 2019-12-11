@@ -15,3 +15,11 @@ p {
 .form-label {
   font-size: 14px;
 }
+
+hr {
+  margin: 15px;
+}
+
+h5 {
+  font-size: 16px;
+}

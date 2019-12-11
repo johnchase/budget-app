@@ -6,46 +6,31 @@
 
       <div class="form-style form-group">
         <label class="form-label" for="amount">Amount</label>
-        <input id="amount" class="form-control" placeholder="$0.00" formControlName="amount" required />
+        <input id="amount" type="number" class="form-control form-field" placeholder="$0.00" formControlName="amount"
+          required />
+
+
       </div>
 
       <div class="form-group">
-        <label for="starDate">Start Date</label>
-        <input type="text" class="form-control" formControlName="date" id="startDate" bsDatepicker autocomplete="off"
-          [bsValue]="bsValue">
+        <label for="starDate" class="form-label">Start Date</label>
+        <input type="text" class="form-control form-field" formControlName="date" id="startDate" bsDatepicker
+          autocomplete="off">
+
       </div>
 
       <div class="form-group form-style">
-        <label for="exampleFormControlSelect1">Category</label>
-        <select class="form-control" id="exampleFormControlSelect1" formControlName="category">
+        <label for="exampleFormControlSelect1" class="form-label">Category</label>
+        <select class="form-control form-field" id="exampleFormControlSelect1" formControlName="category"
+          placeholder="Restaurants">
           <option *ngFor="let type of categoryTypes">{{ type }}</option>
         </select>
       </div>
 
 
-      <div><button class="btn btn-primary" type="submit" [disabled]="!expenseForm.valid">Submit</button></div>
+      <div><button class="btn btn-primary form-field btn-height" type="submit"
+          [disabled]="!expenseForm.valid">Submit</button></div>
 
     </form>
   </div>
-  <!--  -->
-
-  <!--  -->
-
-  <!--  -->
-  <!--  -->
-  <!--  -->
-  <!-- <div [hidden]="!form.submitted || nameField.valid" class="alert alert-danger"> -->
-  <!-- Enter a name -->
-  <!-- </div> -->
-  <!-- </div> -->
-  <!--  -->
-  <!-- <button type="button" class="btn btn-primary" name="singleModel" [(ngModel)]="singleModel" btnCheckbox -->
-  <!-- btnCheckboxTrue="On" btnCheckboxFalse="Off"> -->
-  <!-- {{ singleModel }} -->
-  <!-- </button> -->
-  <!--  -->
-  <!--  -->
-  <!-- <div [hidden]="!postError" class="alert alert-danger"> -->
-  <!-- {{ postErrorMessage }}</div> -->
-  <!--  -->
 </div>

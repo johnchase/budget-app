@@ -1,6 +1,15 @@
-import { Component, OnInit } from '@angular/core';
-import { Expense } from 'src/app/interfaces/expense.model';
-import { FormGroup, FormControl } from '@angular/forms';
+import { Component, OnInit, EventEmitter, Output } from '@angular/core';
+import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
+
+import { ExpenseService } from 'src/app/services/expense.service'
+import { Expense } from 'src/app/interfaces/expense.model'
+
+function amountValidator(c: AbstractControl): { [key: string]: boolean } | null {
+  if (c.value !== null && (isNaN(c.value) || c.value <= 0)) {
+    return { 'range': true };
+  }
+  return null;
+}
 
 
 @Component({
@@ -11,74 +20,26 @@ import { FormGroup, FormControl } from '@angular/forms';
 export class ExpenseComponent implements OnInit {
   expenseForm: FormGroup;
   categoryTypes: Array<string>;
-  bsValue: Date;
-  expense = new Expense();
+  @Output() expenseSubmitted: EventEmitter<string> = new EventEmitter<string>();
 
-  constructor() { }
+  constructor(private fb: FormBuilder,
+    private expenseService: ExpenseService) { }
 
   ngOnInit() {
-    this.bsValue = new Date();
-    this.categoryTypes = new Array('Restaurants', 'Health', 'Groceries', 'Items', 'Entertainment');
-    this.expenseForm = new FormGroup({
-      date: new FormControl(),
-      amount: new FormControl(),
-      category: new FormControl()
+    this.categoryTypes = new Array('Restaurants', 'Gas', 'Health', 'Groceries', 'Items', 'Entertainment');
+    this.expenseForm = this.fb.group({
+      date: new Date(),
+      amount: [null, amountValidator],
+      category: 'Restaruants'
     })
   }
+
   save() {
-    console.log(this.expenseForm);
+    var e = new Expense;
+    e = { ...this.expenseForm.value };
+    this.expenseService.postExpense(e).subscribe({
+      next: (expense: Expense) => this.expenseSubmitted.emit(),
+      error: err => console.log("nope")
+    });
   }
 }
-
-
-
-
-
-  // originalNewExpense: Expense = {
-    // date: null,
-    // amount: null,
-    // category: null
-  // };
-// 
-  // singleModel = "On"
-// 
-  // startDate: Date;
-  // newExpense: Expense = { ...this.originalNewExpense };
-  // postError = false;
-  // postErrorMessage = '';
-// 
-  // constructor(private expenseService: ExpenseService) { }
-// 
-  // ngOnInit() {
-    // this.categoryTypes = this.expenseService.getSubscriptionTypes();
-    // this.startDate = new Date();
-  // }
-// 
-  // onHttpError(errorResponse: any) {
-    // console.log('error: ', errorResponse);
-    // this.postError = true;
-    // this.postErrorMessage = errorResponse.error.errorMessage;
-  // }
-// 
-  // onSubmit(form: NgForm) {
-    // console.log('in onSubmit: ', form.valid);
-// 
-    // if (form.valid) {
-      // this.expenseService.postExpenseForm(this.newExpense).subscribe(
-        // result => console.log('success: ', result),
-        // error => this.onHttpError(error)
-      // );
-    // }
-    // else {
-      // this.postError = true;
-      // this.postErrorMessage = "Please fix the errors"
-    // }
-  // }
-// 
-  // onBlur(field: NgModel) {
-// 
-    // console.log("in onBlur: ", field.valid);
-  // }
-// 
-// }
-// 

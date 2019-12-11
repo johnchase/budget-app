@@ -1,9 +1,9 @@
 <div class="col-12 container">
   <div class="budget border">
-    <app-budget></app-budget>
+    <app-budget [budget]="budget"></app-budget>
   </div>
   <div class="expense border">
-    <app-expense></app-expense>
+    <app-expense (expenseSubmitted)='onExpenseSubmitted()'></app-expense>
   </div>
   <div class="chart border">
     <app-chart></app-chart>
