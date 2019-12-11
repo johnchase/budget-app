@@ -30,7 +30,7 @@ export class ExpenseComponent implements OnInit {
     this.expenseForm = this.fb.group({
       date: new Date(),
       amount: [null, amountValidator],
-      category: 'Restaruants'
+      category: 'Restaurants'
     })
   }
 

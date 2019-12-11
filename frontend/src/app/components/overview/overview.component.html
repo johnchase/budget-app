@@ -3,7 +3,7 @@
     <app-budget [budget]="budget"></app-budget>
   </div>
   <div class="expense border">
-    <app-expense (expenseSubmitted)='onExpenseSubmitted()'></app-expense>
+    <app-expense (expenseSubmitted)="onExpenseSubmitted('submitted')"></app-expense>
   </div>
   <div class="chart border">
     <app-chart></app-chart>
