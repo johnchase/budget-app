@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
+
+  public isUserSignedIn: boolean = false;
+  title = 'Budget Tracker';
+
 }
