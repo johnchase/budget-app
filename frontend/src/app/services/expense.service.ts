@@ -7,7 +7,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class ExpenseService {
-  private baseUrl = `${environment.API_URL}/expenses`;
+  private baseUrl = `${environment.API_URL}/expenses/`;
 
 
   constructor(private http: HttpClient) { }

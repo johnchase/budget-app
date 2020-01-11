@@ -4,14 +4,15 @@ import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators'
 
 import { User } from 'src/app/interfaces/user.model';
-
+import { environment } from 'src/environments/environment';
 @Injectable({
   providedIn: 'root'
 })
 export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
-  private baseUrl = 'http://localhost:8000/api-token-auth/';
+  private baseUrl = `${environment.API_URL}/api-token-auth/`;
+  // url = `${environment.API_URL}/budget`;
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
