@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class UserService {
   // http options used for making API calls
   private httpOptions: any;
 
-  private baseUrl = 'http://localhost:8000/api-token-auth/';
+  private baseUrl = `${environment.API_URL}/api-token-auth/`;
 
   // the actual JWT token
   public token: string;
@@ -43,7 +44,7 @@ export class UserService {
 
   // Refreshes the JWT token, to extend the time the user is logged in
   public refreshToken() {
-    this.http.post('/api-token-refresh/', JSON.stringify({ token: this.token }), this.httpOptions).subscribe(
+    this.http.post(`${environment.API_URL}/api-token-refresh/`, JSON.stringify({ token: this.token }), this.httpOptions).subscribe(
       data => {
         this.updateData(data['token']);
       },
