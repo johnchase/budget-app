@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
 import { Observable, BehaviorSubject } from 'rxjs';
 import { map } from 'rxjs/operators'
 
@@ -24,6 +25,12 @@ export class AuthenticationService {
   }
 
   login(username: string, password: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({
+        'Content-Type': 'application/json',
+        'Accept': 'application/json',
+      })
+    }
     console.log(this.baseUrl)
     return this.http.post<any>(this.baseUrl, { username, password })
       .pipe(map(user => {
