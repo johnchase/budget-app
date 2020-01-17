@@ -10,6 +10,7 @@ export class OverviewComponent implements OnInit {
   public budget: Budget = {
     "week": { "total": null, "perDay": null, "leftPerDay": null, "saved": null },
     "month": { "total": null, "perDay": null, "leftPerDay": null, "saved": null },
+    "year": { "total": null, "perDay": null, "leftPerDay": null, "saved": null },
   };
 
 
