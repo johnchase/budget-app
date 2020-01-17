@@ -10,7 +10,7 @@ export class Budget {
         perDay: number;
         leftPerDay: number;
         saved: number;
-    }
+    };
     year: {
         total: number;
         perDay: number;
