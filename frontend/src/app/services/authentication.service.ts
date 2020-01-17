@@ -13,7 +13,6 @@ export class AuthenticationService {
   private currentUserSubject: BehaviorSubject<User>;
   public currentUser: Observable<User>;
   private baseUrl = `${environment.API_URL}/api-token-auth/`;
-  // url = `${environment.API_URL}/budget`;
 
   constructor(private http: HttpClient) {
     this.currentUserSubject = new BehaviorSubject<User>(JSON.parse(localStorage.getItem('currentUser')));
