@@ -24,8 +24,6 @@ export class OverviewComponent implements OnInit {
 
   onExpenseSubmitted(message: String): void {
     this._getBudget();
-    console.log(this.budget);
-
   }
 
   private _getBudget() {
