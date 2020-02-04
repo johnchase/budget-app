@@ -12,10 +12,11 @@ export class ExpenseService {
 
   constructor(private http: HttpClient) { }
 
-  getExpenses(): Observable<Expense> {
-    const url = this.baseUrl;
-    return this.http.get<Expense>(url);
+  getExpenses(url: string = null): Observable<any> {
+    if (!url) { url = this.baseUrl }
+    return this.http.get<any>(url);
   }
+
   postExpense(expense: Expense): Observable<any> {
     if (expense.date && typeof (expense.date) !== 'string') {
       // Cannot be ISO format, splice to YYYY-MM-DD
