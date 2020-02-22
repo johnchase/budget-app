@@ -26,7 +26,6 @@ export class ExpenseService {
   }
 
   public deleteExpense(id: string): Observable<any> {
-    console.log(`${this.baseUrl}${id}`)
     return this.http.delete<any>(`${this.baseUrl}${id}`);
   }
 }
