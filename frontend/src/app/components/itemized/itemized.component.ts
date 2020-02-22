@@ -11,6 +11,8 @@ export class ItemizedComponent implements OnInit {
   icons: any;
   nextPage: String;
   previousPage: String;
+  modal: boolean = false;
+  currentExpense: any;
 
   constructor(private expenseService: ExpenseService) {
     this.icons = {
@@ -26,4 +28,20 @@ export class ItemizedComponent implements OnInit {
   private _getExpenses(url: string = null) {
     this.expenseService.getExpenses(url).subscribe(expenses => this.expenses = expenses)
   }
+
+  public emitDeleteModal(expense: number) {
+    this.currentExpense = expense;
+    this.modal = true;
+  }
+
+  public emitDelete() {
+    this.modal = false;
+    this.expenseService.deleteExpense(this.currentExpense.id).subscribe(() => this._getExpenses())
+
+  }
+
+  public emitCancel() {
+    this.modal = false
+  }
+
 }
