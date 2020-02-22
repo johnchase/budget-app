@@ -55,13 +55,6 @@
   padding: 0px 5px 0px 0px;
 }
 
-.date {
-  grid-row: 2/3;
-  grid-column: 2/3;
-  color: #787A80;
-  font-size: 12px;
-
-}
 
 .edit {
   grid-row: 2/3;
@@ -82,13 +75,6 @@
 
 }
 
-.edit {
-  grid-row: 2/3;
-  grid-column: 3/4;
-  justify-self: right;
-
-}
-
 .navigation {
   cursor: pointer;
   margin-left: 10px;
@@ -97,4 +83,31 @@
 
 .navigation:hover {
   text-decoration: underline;
+}
+
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.light-card {
+  width: 35vw;
+  height: auto;
+  max-height: 80vh;
+  margin: 200px auto;
+  overflow: hidden;
+  background: white;
+  border-radius: 5px;
+}
+
+
+.delete-button {
+  height: 30px;
+  width: 100px;
+  background-color: white;
+  color: #0B1BFF;
 }
