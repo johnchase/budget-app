@@ -28,7 +28,7 @@
       <div *ngFor="let expense of expenses.results">
 
         <div class="item">
-          <div class="category-icon"><i class="fas {{ icons[expense.category] }}"></i></div>
+          <div class="category-icon"><i class="{{ icons[expense.category] }}"></i></div>
           <div class="category-text"><span>{{ expense.category }}</span></div>
           <div class="amount"><span> {{ expense.amount | currency }}</span></div>
           <div class="date">{{ expense.date | date }}</div>

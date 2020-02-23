@@ -26,7 +26,7 @@ export class ExpenseComponent implements OnInit {
     private expenseService: ExpenseService) { }
 
   ngOnInit() {
-    this.categoryTypes = new Array('Restaurants', 'Gas', 'Health', 'Groceries', 'Items', 'Entertainment');
+    this.categoryTypes = new Array('Restaurants', 'Gas', 'Health', 'Groceries', 'Items', 'Entertainment', "Rideshare");
     this.expenseForm = this.fb.group({
       date: new Date(),
       amount: [null, amountValidator],

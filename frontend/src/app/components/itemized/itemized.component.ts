@@ -16,8 +16,8 @@ export class ItemizedComponent implements OnInit {
 
   constructor(private expenseService: ExpenseService) {
     this.icons = {
-      'Restaurants': 'fa-utensils', "Health": "fa-medkit", "Entertainment": "fa-ticket-alt",
-      "Gas": "fa-gas-pump", "Groceries": "fa-shopping-cart", "Items": "fa-store"
+      'Restaurants': 'fas fa-utensils', "Health": "fas fa-medkit", "Entertainment": "fas fa-ticket-alt",
+      "Gas": "fas fa-gas-pump", "fas Groceries": "fas fa-shopping-cart", "Items": "fas fa-store", 'Rideshare': "fab fa-uber"
     }
   }
 
