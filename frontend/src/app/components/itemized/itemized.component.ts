@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ExpenseService } from "src/app/services/expense.service";
+import { categories } from "src/app/data/category_data";
 
 @Component({
   selector: "app-itemized",
@@ -8,23 +9,14 @@ import { ExpenseService } from "src/app/services/expense.service";
 })
 export class ItemizedComponent implements OnInit {
   expenses: any;
-  icons: any;
+  icons: Object;
   nextPage: String;
   previousPage: String;
   modal: boolean = false;
   currentExpense: any;
 
   constructor(private expenseService: ExpenseService) {
-    this.icons = {
-      Restaurants: "fas fa-utensils",
-      Health: "fas fa-medkit",
-      Entertainment: "fas fa-ticket-alt",
-      Gas: "fas fa-gas-pump",
-      Groceries: "fas fa-shopping-cart",
-      Items: "fas fa-store",
-      Rideshare: "fab fa-uber",
-      Clothing: "fas fa-tshirt"
-    };
+    this.icons = categories;
   }
 
   ngOnInit() {

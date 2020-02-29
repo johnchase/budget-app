@@ -1,5 +1,6 @@
 import { Component, OnInit, EventEmitter, Output } from "@angular/core";
 import { FormGroup, FormBuilder, AbstractControl } from "@angular/forms";
+import { categories } from "src/app/data/category_data";
 
 import { ExpenseService } from "src/app/services/expense.service";
 import { Expense } from "src/app/interfaces/expense.model";
@@ -20,7 +21,7 @@ function amountValidator(
 })
 export class ExpenseComponent implements OnInit {
   expenseForm: FormGroup;
-  categoryTypes: Array<string>;
+  public categoryTypes: Array<string>;
   @Output() expenseSubmitted: EventEmitter<string> = new EventEmitter<string>();
 
   constructor(
@@ -29,16 +30,7 @@ export class ExpenseComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.categoryTypes = new Array(
-      "Restaurants",
-      "Gas",
-      "Health",
-      "Groceries",
-      "Items",
-      "Entertainment",
-      "Rideshare",
-      "Clothing"
-    );
+    this.categoryTypes = Object.keys(categories);
     this.expenseForm = this.fb.group({
       date: new Date(),
       amount: [null, amountValidator],
