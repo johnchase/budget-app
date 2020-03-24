@@ -1,0 +1,46 @@
+<div class="col-12 container">
+  <div class="item-container">
+
+    <div class="modal-backdrop" *ngIf="modal">
+      <div class="light-card">
+        <div class="row mt-4">
+          <div class="col-10 offset-1 text-center">
+            <span>Are you sure you want to delete the {{ currentExpense.category }} expense for
+              {{ currentExpense.amount | currency }}? </span>
+          </div>
+        </div>
+        <div class="row mt-4 mb-3">
+          <div class="col-2 offset-6 mr-3">
+            <button (click)="emitCancel()" class="btn btn-primary">Cancel</button>
+          </div>
+          <div class="col-2">
+            <button (click)="emitDelete()" class="btn btn-outline-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf='expenses'>
+      <div class="item-header">
+        <span class="navigation" (click)="_getExpenses(expenses.previous)">Previous</span>
+        <span class="navigation" (click)="_getExpenses(expenses.next)">Next</span>
+      </div>
+      <div *ngFor="let expense of expenses.results">
+
+        <div class="item">
+          <div class="category-icon"><i class="{{ icons[expense.category] }}"></i></div>
+          <div class="category-text"><span>{{ expense.category }}</span></div>
+          <div class="amount"><span> {{ expense.amount | currency }}</span></div>
+          <div class="date">{{ expense.date | date }}</div>
+          <div class="edit">
+            <span style="padding-right:5px;">Edit</span>
+            <span (click)="emitDeleteModal(expense)">
+              <i class="fas fa-trash navigation" style="font-size: 11px"></i>
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
