@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { OverviewComponent } from './components/overview/overview.component';
-import { ItemizedComponent } from './components/itemized/itemized.component';
+import { ItemizedComponent } from './components/overview/itemized/itemized.component';
 import { ExpenseComponent } from './components/overview/expense/expense.component';
 import { ChartComponent } from './components/overview/chart/chart.component';
 import { ButtonsModule } from 'ngx-bootstrap/buttons';
