@@ -1,32 +1,29 @@
 import { Component, OnInit } from '@angular/core';
-import { Budget } from 'src/app/interfaces/budget.model'
-import { BudgetService } from 'src/app/services/budget.service'
-import { Observable } from 'rxjs';
+import { Budget } from 'src/app/interfaces/budget.model';
+import { BudgetService } from 'src/app/services/budget.service';
 @Component({
   templateUrl: './overview.component.html',
-  styleUrls: ['./overview.component.css']
+  styleUrls: ['./overview.component.css'],
 })
 export class OverviewComponent implements OnInit {
-  public budget: Budget = {
-    "week": { "total": null, "perDay": null, "leftPerDay": null, "saved": null },
-    "month": { "total": null, "perDay": null, "leftPerDay": null, "saved": null },
-    "year": { "total": null, "perDay": null, "leftPerDay": null, "saved": null },
-  };
-
+  modal = false;
+  public budget: Budget;
 
   constructor(private budgetService: BudgetService) {
     this._getBudget();
   }
 
-  ngOnInit() {
+  ngOnInit() {}
 
-  }
-
-  onExpenseSubmitted(message: String): void {
+  onExpenseSubmitted(message: string): void {
     this._getBudget();
   }
 
   private _getBudget() {
-    this.budgetService.getBudgets().subscribe(budget => this.budget = budget)
+    this.budgetService.getBudgets().subscribe(budget => (this.budget = budget));
+  }
+  public emitExpenseModal() {
+    this.modal = !this.modal;
+    console.log(this.modal);
   }
 }

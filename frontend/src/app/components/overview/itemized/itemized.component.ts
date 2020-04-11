@@ -1,18 +1,19 @@
-import { Component, OnInit } from "@angular/core";
-import { ExpenseService } from "src/app/services/expense.service";
-import { categories } from "src/app/data/category_data";
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { ExpenseService } from 'src/app/services/expense.service';
+import { categories } from 'src/app/data/category_data';
 
 @Component({
-  selector: "app-itemized",
-  templateUrl: "./itemized.component.html",
-  styleUrls: ["./itemized.component.css"]
+  selector: 'app-itemized',
+  templateUrl: './itemized.component.html',
+  styleUrls: ['./itemized.component.css'],
 })
 export class ItemizedComponent implements OnInit {
+  @Output() expenseDeleted: EventEmitter<string> = new EventEmitter<string>();
   expenses: any;
-  icons: Object;
-  nextPage: String;
-  previousPage: String;
-  modal: boolean = false;
+  icons: object;
+  nextPage: string;
+  previousPage: string;
+  modal = false;
   currentExpense: any;
 
   constructor(private expenseService: ExpenseService) {
@@ -21,6 +22,8 @@ export class ItemizedComponent implements OnInit {
 
   ngOnInit() {
     this._getExpenses();
+
+    console.log(this.icons);
   }
 
   private _getExpenses(url: string = null) {
@@ -36,9 +39,10 @@ export class ItemizedComponent implements OnInit {
 
   public emitDelete() {
     this.modal = false;
-    this.expenseService
-      .deleteExpense(this.currentExpense.id)
-      .subscribe(() => this._getExpenses());
+    this.expenseService.deleteExpense(this.currentExpense.id).subscribe(() => {
+      this._getExpenses();
+      this.expenseDeleted.emit();
+    });
   }
 
   public emitCancel() {

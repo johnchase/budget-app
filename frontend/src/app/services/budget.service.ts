@@ -1,18 +1,21 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
-import { Budget } from 'src/app/interfaces/budget.model'
+import { Budget } from 'src/app/interfaces/budget.model';
 import { environment } from 'src/environments/environment';
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class BudgetService {
-  url = `${environment.API_URL}/budget`;
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getBudgets(): Observable<Budget> {
-    return this.http.get<Budget>(this.url);
+    const url = `${environment.API_URL}/budget`;
+    return this.http.get<Budget>(url);
+  }
 
+  getSaved(): Observable<number> {
+    const url = `${environment.API_URL}/saved`;
+    return this.http.get<number>(url);
   }
 }
