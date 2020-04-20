@@ -1,46 +1,109 @@
 <div class="col-12 container">
   <div class="item-container">
-
     <div class="modal-backdrop" *ngIf="modal">
       <div class="light-card">
         <div class="row mt-4">
           <div class="col-10 offset-1 text-center">
-            <span>Are you sure you want to delete the {{ currentExpense.category }} expense for
-              {{ currentExpense.amount | currency }}? </span>
+            <span
+              >Are you sure you want to delete the {{ currentExpense.category }}
+              expense for {{ currentExpense.amount | currency }}?
+            </span>
           </div>
         </div>
         <div class="row mt-4 mb-3">
           <div class="col-2 offset-6 mr-3">
-            <button (click)="emitCancel()" class="btn btn-primary">Cancel</button>
+            <button (click)="emitCancel()" class="btn btn-primary">
+              Cancel
+            </button>
           </div>
           <div class="col-2">
-            <button (click)="emitDelete()" class="btn btn-outline-primary">Submit</button>
+            <button (click)="emitDelete()" class="btn btn-outline-primary">
+              Submit
+            </button>
           </div>
         </div>
       </div>
     </div>
 
-    <div *ngIf='expenses'>
+    <div *ngIf="expenses">
       <div class="item-header">
-        <span class="navigation" (click)="_getExpenses(expenses.previous)">Previous</span>
-        <span class="navigation" (click)="_getExpenses(expenses.next)">Next</span>
+        <span class="navigation" (click)="_getExpenses(expenses.previous)"
+          >Previous</span
+        >
+        <span class="navigation" (click)="_getExpenses(expenses.next)"
+          >Next</span
+        >
       </div>
       <div *ngFor="let expense of expenses.results">
+        <div class="row item">
+          <div class="col-12">
+            <div class="row navigation" (click)="expandExpense(expense.id)">
+              <div class="col-1 mt-1 category-icon">
+                <i class="{{ icons[expense.category] }}"></i>
+              </div>
 
-        <div class="item">
-          <div class="category-icon"><i class="{{ icons[expense.category] }}"></i></div>
-          <div class="category-text"><span>{{ expense.category }}</span></div>
-          <div class="amount"><span> {{ expense.amount | currency }}</span></div>
-          <div class="date">{{ expense.date | date }}</div>
-          <div class="edit">
-            <span style="padding-right:5px;">Edit</span>
-            <span (click)="emitDeleteModal(expense)">
-              <i class="fas fa-trash navigation" style="font-size: 11px"></i>
-            </span>
+              <div class="col-5 mt-1">
+                <p>
+                  <span class="text-large"
+                    >{{ expense.description || "No Description" }}</span
+                  ><br />
+                  <span class="text-small">{{ expense.business }}</span>
+                </p>
+              </div>
+
+              <div class="col-6 mt-1 text-right">
+                <p>
+                  <span class="text-large">{{ expense.amount | currency }}</span
+                  ><br />
+                  <span class="text-small">{{ expense.date | date }}</span>
+                </p>
+              </div>
+            </div>
+
+            <div class="row" *ngIf="expandedExpenses.indexOf(expense.id) !> -1">
+              <div class="col-12">
+                <div class="row">
+                  <div class="col-12">
+                    <hr />
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-6 offset-1">
+                    <p>
+                      <span class="text-large"
+                        >Include in budget calculation?</span
+                      ><br />
+                      <span class="text-small"
+                        >{{ expense.budget_calculation?'Yes':'No'}}</span
+                      >
+                    </p>
+                    <p>
+                      <span class="text-large">Category</span><br />
+                      <span class="text-small">{{ expense.category }}</span>
+                    </p>
+                  </div>
+
+                  <div class="col-4">
+                    <p>
+                      <span class="text-large">Budget Category</span><br />
+                      <span class="text-small"
+                        >{{ expense.budget_category }}</span
+                      >
+                    </p>
+                  </div>
+                </div>
+                <div class="row mb-3">
+                  <div class="col-1 offset-9" style="padding: 0px 0px 0px 50px;">
+                    <span class="text-edit">Edit</span>
+                    <span class="text-delete navigation" (click)="emitDeleteModal(expense)">Delete</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-
   </div>
 </div>

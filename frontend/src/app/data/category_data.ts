@@ -11,7 +11,7 @@ export const categories: Object = {
   Paycheck: 'fas fa-dollar-sign',
   Bonus: 'fas fa-dollar-sign',
   'Other Income': 'fas fa-dollar-sign',
-  Utility: 'fas fa-faucet',
+  Utility: 'fas fa-bolt',
   Rent: 'fas fa-house-user',
   Roth: 'fas fa-piggy-bank',
   '401k': 'fas fa-piggy-bank',

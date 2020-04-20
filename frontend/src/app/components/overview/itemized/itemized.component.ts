@@ -15,9 +15,11 @@ export class ItemizedComponent implements OnInit {
   previousPage: string;
   modal = false;
   currentExpense: any;
+  expandedExpenses: Array<any>;
 
   constructor(private expenseService: ExpenseService) {
     this.icons = categories;
+    this.expandedExpenses = [];
   }
 
   ngOnInit() {
@@ -35,6 +37,23 @@ export class ItemizedComponent implements OnInit {
   public emitDeleteModal(expense: number) {
     this.currentExpense = expense;
     this.modal = true;
+  }
+
+  /**
+   * Expand the expense window
+   *
+   * @returns {undefined}
+   */
+  public expandExpense(expenseId: number) {
+    if (this.expandedExpenses.includes(expenseId)) {
+      const index = this.expandedExpenses.indexOf(expenseId);
+      if (index > -1) {
+        this.expandedExpenses.splice(index, 1);
+      }
+    } else {
+      this.expandedExpenses.push(expenseId);
+    }
+    console.log(this.expandedExpenses);
   }
 
   public emitDelete() {
