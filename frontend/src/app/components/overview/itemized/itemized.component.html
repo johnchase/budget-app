@@ -35,7 +35,7 @@
         >
       </div>
       <div class="row item" *ngFor="let expense of expenses.results">
-          <div class="col-12 ml-0">
+          <div class="col-12">
             <div class="row navigation ml-0" (click)="expandExpense(expense.id)">
               <div class="col-6 ml-0">
                 <p class="text-alignment">
@@ -46,7 +46,7 @@
                 </p >
               </div>
 
-              <div class="col-6 text-right">
+              <div class="col-6 text-right ">
                 <p class="text-alignment">
                   <span class="text-large">{{ expense.amount | currency }}</span
                   ><br />
