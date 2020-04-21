@@ -1,0 +1,22 @@
+.modal-backdrop {
+  background: rgba(0, 0, 0, 0.6);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.light-card {
+  width: 35vw;
+  height: auto;
+  max-height: 80vh;
+  margin: 200px auto;
+  overflow: hidden;
+  background: white;
+  border-radius: 5px;
+}
+
+.expense-header {
+  padding: 10px 0 0 15px;
+}

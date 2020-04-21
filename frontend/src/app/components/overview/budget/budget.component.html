@@ -7,20 +7,24 @@
     <h6 class="expense-header">Week</h6>
     <hr>
     <div class="line-item">
-      <p>Total</p>
-      <p>{{ budget.week.total | currency  }}</p>
+      <p>Income</p>
+      <p>{{ budgetSummary?.Income || "0" | currency }}</p>
     </div>
     <div class="line-item">
-      <p>Spent Per Day</p>
-      <p>{{ budget.week.perDay | currency }}</p>
+      <p>Bills</p>
+      <p>{{ budgetSummary?.Bill || "0" | currency}}</p>
     </div>
     <div class="line-item">
-      <p>Left Per Day</p>
-      <p>{{ budget.week.leftPerDay | currency}}</p>
+      <p>Subscriptions</p>
+      <p>{{ budgetSummary?.Subscription || "0" | currency }}</p>
     </div>
     <div class="line-item">
-      <p>Saved</p>
-      <p>{{ budget.week.saved | currency }}</p>
+      <p>Savings/Retirement</p>
+      <p>{{ budgetSummary?.Savings || "0" | currency}}</p>
+    </div>
+    <div class="line-item">
+      <p>Next Month Daily</p>
+      <p>{{ perDiem | currency }}</p>
     </div>
   </div>
   <div>
@@ -28,25 +32,25 @@
     <hr>
     <div class="line-item">
       <p>Total</p>
-      <p>{{  budget.month.total | currency }}</p>
+      <p>{{  budget?.total | currency }}</p>
     </div>
     <div class="line-item">
       <p>Spent Per Day</p>
-      <p>{{ budget.month.perDay | currency }}</p>
+      <p>{{ budget?.perDay | currency }}</p>
     </div>
     <div class="line-item">
       <p>Left Per Day</p>
-      <p>{{ budget.month.leftPerDay | currency }}</p>
+      <p>{{ budget?.leftPerDay | currency }}</p>
     </div>
     <div class="line-item">
       <p>Saved</p>
-      <p>{{ budget.month.saved | currency }}</p>
+      <p>{{ budget?.saved | currency }}</p>
     </div>
     <h6 class="expense-header">Year</h6>
     <hr>
     <div class="line-item">
       <p>Saved</p>
-      <p>{{ budget.year.saved | currency }} </p>
+      <p>{{ saved | currency }}</p>
     </div>
   </div>
 </div>

@@ -3,14 +3,14 @@
   grid-row: 1 / 12;
 }
 
-.expense {
+.header {
   grid-column: 4 / 12;
-  grid-row: 1 / 4;
+  grid-row: 1 / 2;
 }
 
-.chart {
+.data-content {
   grid-column: 4 / 12;
-  grid-row: 4 / 12;
+  grid-row: 2 / 12;
 }
 
 .border {
@@ -30,4 +30,3 @@
   grid-template-rows: repeat(11, 1fr);
 
 }
-

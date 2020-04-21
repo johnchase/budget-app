@@ -1,11 +1,33 @@
 <div class="col-12 container">
+
+
   <div class="budget border">
-    <app-budget [budget]="budget"></app-budget>
+    <app-budget #appbudget></app-budget>
   </div>
-  <div class="expense border">
-    <app-expense (expenseSubmitted)="onExpenseSubmitted('submitted')"></app-expense>
+
+  <div class="row header">
+
+    <div class="col-4 mr-4">
+      <button class="btn btn-secondary" (click)="emitExpenseModal()">NEW TRANSACTION</button>
+    </div>
+
+    <div>
+      <app-expense-modal *ngIf="modal"
+        (closeModal)="emitExpenseModal(); appbudget._getBudget(); appitemized._getExpenses()"></app-expense-modal>
+
+    </div>
+
+    <div>
+      <div class=" form-group form-style">
+        <select class="form-control" placeholder="Itemized">
+          <option>Itemized</option>
+        </select>
+      </div>
+    </div>
+
   </div>
-  <div class="chart border">
-    <app-chart></app-chart>
+  <div class="data-content">
+    <app-itemized #appitemized (expenseDeleted)="appbudget._getBudget()"></app-itemized>
+
   </div>
 </div>
