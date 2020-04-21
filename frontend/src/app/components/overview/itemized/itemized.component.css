@@ -23,8 +23,6 @@
   border: 1px solid #e5e5e5;
   box-sizing: border-box;
   border-radius: 2px;
-  margin: 0px 0px 0px 0px;
-  padding: 0px 0px 0px 0px;
 }
 
 .category-icon {
@@ -34,23 +32,26 @@
 
 .text-large {
   color: #181818;
-  font-size: 16px;
+  font-size: 15px;
 }
 
-
 .text-edit {
-  color: #7EA4DD;
+  color: #7ea4dd;
   font-size: 18px;
 }
 
+.text-alignment {
+  margin: 10px 0px 10px 0px;
+}
+
 .text-delete {
-  color: #E15555;
+  color: #e15555;
   font-size: 18px;
 }
 
 .text-small {
-  color: #7EA4DD;
-  font-size: 12px;
+  color: #7ea4dd;
+  font-size: 11px;
 }
 
 .navigation {
