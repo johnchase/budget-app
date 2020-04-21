@@ -34,25 +34,20 @@
           >Next</span
         >
       </div>
-      <div *ngFor="let expense of expenses.results">
-        <div class="row item">
+      <div class="row item" *ngFor="let expense of expenses.results">
           <div class="col-12">
-            <div class="row navigation" (click)="expandExpense(expense.id)">
-              <div class="col-1 mt-1 category-icon">
-                <i class="{{ icons[expense.category] }}"></i>
-              </div>
-
-              <div class="col-5 mt-1">
-                <p>
+            <div class="row navigation ml-0" (click)="expandExpense(expense.id)">
+              <div class="col-6 ml-0">
+                <p class="text-alignment">
                   <span class="text-large"
                     >{{ expense.description || "No Description" }}</span
                   ><br />
                   <span class="text-small">{{ expense.business }}</span>
-                </p>
+                </p >
               </div>
 
-              <div class="col-6 mt-1 text-right">
-                <p>
+              <div class="col-6 text-right ">
+                <p class="text-alignment">
                   <span class="text-large">{{ expense.amount | currency }}</span
                   ><br />
                   <span class="text-small">{{ expense.date | date }}</span>
@@ -94,15 +89,21 @@
                   </div>
                 </div>
                 <div class="row mb-3">
-                  <div class="col-1 offset-9" style="padding: 0px 0px 0px 50px;">
+                  <div
+                    class="col-1 offset-9"
+                    style="padding: 0px 0px 0px 50px;"
+                  >
                     <span class="text-edit">Edit</span>
-                    <span class="text-delete navigation" (click)="emitDeleteModal(expense)">Delete</span>
+                    <span
+                      class="text-delete navigation"
+                      (click)="emitDeleteModal(expense)"
+                      >Delete</span
+                    >
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
       </div>
     </div>
   </div>
